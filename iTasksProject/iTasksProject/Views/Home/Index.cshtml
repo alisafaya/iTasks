@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<section id="slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <img height="400" src="@Url.Content("~/Content/iTasksTemplate/")img/iTasksLogo002.png" alt="Splash">
+            </div>
+            <div class="col-md-7">
+                <div class="block">
+                    <br /><br />
+                    <h1 class="animated fadeInUp">iTasks.</h1>
+                    <p class="animated fadeInUp">Are you tired organizing your tasks ?<br/>Can not you remember everything at the same time ?<br/>iTasks is what you need</p>
+                </div>
+                <div class="btn animated fadeInUp" style="padding:5px 200px;background-color:whitesmoke;border-color:#e3e3e3;">@Html.ActionLink("Register Now !", "Index", new { @area = "" }, new { @style = "color:#397b20;" })</div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="intro">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 col-sm-12">
+                <div class="block">
+                    <div class="section-title" >
+                        <h2>What is iTasks</h2>
+                        <p>iTasks application allow you to manage, organize and save your tasks with your iTasks free account.</p>
+                        <p>Download our ios / android application and sychronize your task between your phone and your pc.</p>
+                        <p>Access your tasks from any device with one account</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 col-sm-12">
+                <div class="block">
+                    <img src="@Url.Content("~/Content/iTasksTemplate/")img/wrapper-img.gif" alt="Img">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
