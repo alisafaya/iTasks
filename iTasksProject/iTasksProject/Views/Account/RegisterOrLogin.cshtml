@@ -1,0 +1,186 @@
+﻿@model iTasksProject.Models.RegisterOrLoginViewModel
+
+@{
+    if (ViewBag.Register == null)
+    {
+        ViewBag.Register = true;
+    }
+
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+    ViewBag.Title = "Register or Login";
+}
+<div class="logmod">
+    @Html.ActionLink("iTasks", "Index", "Home", null, new { @class = "iTasks" })
+    <div class="logmod__wrapper" style="">
+        <div class="logmod__container" style="">
+            @if (ViewBag.Register)
+            {
+                <ul class="logmod__tabs">
+                    <li data-tabtar="lgm-2">
+                        <a href="#" class="">Login</a>
+                    </li>
+                    <li data-tabtar="lgm-1" class="current">
+                        <a href="#">Sign Up</a>
+                    </li>
+                </ul>
+                <div class="logmod__tab-wrapper" style="">
+                    <div class="logmod__tab lgm-1 show" style="">
+                        <div class="logmod__heading">
+                            <span class="logmod__heading-subtitle">Enter your personal details <strong>to create an account</strong></span>
+                        </div>
+                        <div class="logmod__form">
+                            @using (Html.BeginForm("Register", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "simform" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div>@Html.ValidationSummary(true, "", new { @class = "text-danger" })</div>
+                                <div class="sminputs">
+                                    <div class="input full">
+                                        <label class="string optional" for="user-name">Email*</label>
+                                        @Html.TextBoxFor(m => m.RegisterViewModel.Email, new { @class = "string optional", @placeholder = "Email" })
+                                    </div>
+                                </div>
+                                <div class="sminputs">
+                                    <div class="input full" style="">
+                                        <label class="string optional" for="user-name" style="">User Name*</label>
+                                        @Html.TextBoxFor(m => m.RegisterViewModel.UserName, new { @class = "string optional", @placeholder = "User-Name" })
+                                    </div>
+                                </div>
+                                <div class="sminputs">
+                                    <div class="input string optional">
+                                        <label class="string optional" for="user-pw">Password*</label>
+                                        @Html.PasswordFor(m => m.RegisterViewModel.Password, new { @class = "string optional", @placeholder = "Password" })
+                                    </div>
+                                    <div class="input string optional">
+                                        <label class="string optional" for="user-pw-repeat">Repeat password*</label>
+                                        @Html.PasswordFor(m => m.RegisterViewModel.ConfirmPassword, new { @class = "string optional", @placeholder = "Repeat Password" })
+                                    </div>
+                                </div>
+                                <div class="simform__actions">
+                                    <input class="sumbit" name="commit" value="Create Account" type="submit">
+                                    <span class="simform__actions-sidetext">By creating an account you agree to our <a class="special" href="~/Home/Contact" target="_blank" role="link">Terms &amp; Privacy</a></span>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="logmod__tab lgm-2" style="">
+                        <div class="logmod__heading" style="">
+                            <span class="logmod__heading-subtitle" style="">Enter your email and password <strong style="">to sign in</strong></span>
+                        </div>
+                        <div class="logmod__form" style="">
+                            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "simform" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div>@Html.ValidationSummary(true, "", new { @class = "text-danger" })</div>
+                                <div class="sminputs">
+                                    <div class="input full" style="">
+                                        <label class="string optional" for="user-name" style="">Email*</label>
+                                        @Html.TextBoxFor(m => m.LoginViewModel.Email, new { @class = "string optional", @placeholder = "Email" })
+                                    </div>
+                                </div>
+                                <div class="sminputs">
+                                    <div class="input full" style="">
+                                        <label class="string optional" for="user-pw" style="">Password*</label>
+                                        @Html.PasswordFor(m => m.LoginViewModel.Password, new { @id = "user-pw", @class = "string optional", @placeholder = "Password" })
+                                        <span class="hide-password">Show</span>
+                                    </div>
+                                </div>
+
+                                <div class="simform__actions" style="">
+                                    @Html.CheckBoxFor(m => m.LoginViewModel.RememberMe)
+                                    <label class="string optional" style=""> Remember Me*</label>
+                                    <input class="sumbit" name="commit" value="Log In" type="submit">
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <ul class="logmod__tabs">
+                    <li data-tabtar="lgm-2" class="current">
+                        <a href="#" class="">Login</a>
+                    </li>
+                    <li data-tabtar="lgm-1">
+                        <a href="#">Sign Up</a>
+                    </li>
+                </ul>
+                <div class="logmod__tab-wrapper" style="">
+                    <div class="logmod__tab lgm-1 " style="">
+                        <div class="logmod__heading">
+                            <span class="logmod__heading-subtitle">Enter your personal details <strong>to create an account</strong></span>
+                        </div>
+                        <div class="logmod__form">
+                            @using (Html.BeginForm("Register", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "simform" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div>@Html.ValidationSummary(true, "", new { @class = "text-danger" })</div>
+                                <div class="sminputs">
+                                    <div class="input full">
+                                        <label class="string optional" for="user-name">Email*</label>
+                                        @Html.TextBoxFor(m => m.RegisterViewModel.Email, new { @class = "string optional", @placeholder = "Email" })
+                                    </div>
+                                </div>
+                                <div class="sminputs">
+                                    <div class="input full" style="">
+                                        <label class="string optional" for="user-name" style="">User Name*</label>
+                                        @Html.TextBoxFor(m => m.RegisterViewModel.UserName, new { @class = "string optional", @placeholder = "User-Name" })
+                                    </div>
+                                </div>
+                                <div class="sminputs">
+                                    <div class="input string optional">
+                                        <label class="string optional" for="user-pw">Password*</label>
+                                        @Html.PasswordFor(m => m.RegisterViewModel.Password, new { @class = "string optional", @placeholder = "Password" })
+                                    </div>
+                                    <div class="input string optional">
+                                        <label class="string optional" for="user-pw-repeat">Repeat password*</label>
+                                        @Html.PasswordFor(m => m.RegisterViewModel.ConfirmPassword, new { @class = "string optional", @placeholder = "Repeat Password" })
+                                    </div>
+                                </div>
+                                <div class="simform__actions">
+                                    <input class="sumbit" name="commit" value="Create Account" type="submit">
+                                    <span class="simform__actions-sidetext">By creating an account you agree to our <a class="special" href="~/Home/Contact" target="_blank" role="link">Terms &amp; Privacy</a></span>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="logmod__tab lgm-2 show" style="">
+                        <div class="logmod__heading" style="">
+                            <span class="logmod__heading-subtitle" style="">Enter your email and password <strong style="">to sign in</strong></span>
+                        </div>
+                        <div class="logmod__form" style="">
+                            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "simform" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div>@Html.ValidationSummary(true, "", new { @class = "text-danger" })</div>
+                                <div class="sminputs">
+                                    <div class="input full" style="">
+                                        <label class="string optional" for="user-name" style="">Email*</label>
+                                        @Html.TextBoxFor(m => m.LoginViewModel.Email, new { @class = "string optional", @placeholder = "Email" })
+                                    </div>
+                                </div>
+                                <div class="sminputs">
+                                    <div class="input full" style="">
+                                        <label class="string optional" for="user-pw" style="">Password*</label>
+                                        @Html.PasswordFor(m => m.LoginViewModel.Password, new { @id = "user-pw", @class = "string optional", @placeholder = "Password" })
+                                        <span class="hide-password">Show</span>
+                                    </div>
+                                </div>
+                                <div class="simform__actions" style="">
+                                        @Html.CheckBoxFor(m => m.LoginViewModel.RememberMe)
+                                    <label class="string optional" style="">Remember Me*</label>
+                                    <input class="sumbit" name="commit" value="Log In" type="submit">
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src='@Url.Content("~/Content/iTasksTemplate/")js/jquery.min.js'></script>
+    <script src="@Url.Content("~/Content/iTasksTemplate/")js/login.js"></script>
+}

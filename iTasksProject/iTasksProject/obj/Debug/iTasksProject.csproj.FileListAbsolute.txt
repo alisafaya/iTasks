@@ -162,3 +162,6 @@ C:\Users\Casemice\Documents\itasksproject\iTasksProject\iTasksProject\bin\Micros
 C:\Users\Casemice\Documents\itasksproject\iTasksProject\iTasksProject\obj\Debug\iTasksProject.csprojResolveAssemblyReference.cache
 C:\Users\Casemice\Documents\itasksproject\iTasksProject\iTasksProject\obj\Debug\iTasksProject.dll
 C:\Users\Casemice\Documents\itasksproject\iTasksProject\iTasksProject\obj\Debug\iTasksProject.pdb
+C:\Users\Casemice\Documents\itasksproject\iTasksProject\iTasksProject\obj\Debug\iTasksProject.Migrations.InitialCreate.resources
+C:\Users\Casemice\Documents\itasksproject\iTasksProject\iTasksProject\obj\Debug\iTasksProject.csproj.GenerateResource.Cache
+C:\Users\Casemice\Documents\itasksproject\iTasksProject\iTasksProject\obj\Debug\iTasksProject.Migrations.iTask.resources

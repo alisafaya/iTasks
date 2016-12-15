@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using iTasksProject.Models;
 
 namespace iTasksProject.Controllers
 {
-    [RequireHttps]
+    
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -24,6 +25,14 @@ namespace iTasksProject.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Contact( ContactMessageModel model)
+        {
+            //save message to db
 
             return View();
         }

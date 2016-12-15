@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using iTasksProject.Models;
 
+
 namespace iTasksProject.Controllers
 {
     [Authorize]
@@ -58,7 +59,8 @@ namespace iTasksProject.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            ViewBag.Register = false;
+            return View("~/Views/Account/RegisterOrLogin.cshtml");
         }
 
         //
@@ -66,16 +68,17 @@ namespace iTasksProject.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<ActionResult> Login(RegisterOrLoginViewModel _model, string returnUrl)
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return View("~/Views/Account/RegisterOrLogin.cshtml", _model);
             }
-
+            var model = _model.LoginViewModel;
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var user = await UserManager.FindByEmailAsync(model.Email);
+            var result = user == null ? SignInStatus.Failure : await SignInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -87,7 +90,8 @@ namespace iTasksProject.Controllers
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
+                    ViewBag.Register = false;
+                    return View("~/Views/Account/RegisterOrLogin.cshtml", _model);
             }
         }
 
@@ -115,7 +119,6 @@ namespace iTasksProject.Controllers
             {
                 return View(model);
             }
-
             // The following code protects for brute force attacks against the two factor codes. 
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
@@ -139,7 +142,8 @@ namespace iTasksProject.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            ViewBag.Register = true;
+            return View("~/Views/Account/RegisterOrLogin.cshtml");
         }
 
         //
@@ -147,11 +151,12 @@ namespace iTasksProject.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterOrLoginViewModel _model)
         {
+            var model = _model.RegisterViewModel;
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -169,7 +174,7 @@ namespace iTasksProject.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return View("~/Views/Account/RegisterOrLogin.cshtml", _model);
         }
 
         //
@@ -386,9 +391,7 @@ namespace iTasksProject.Controllers
         }
 
         //
-        // POST: /Account/LogOff
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        // GET: /Account/LogOff
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);

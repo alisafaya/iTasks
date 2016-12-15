@@ -2,7 +2,6 @@
 <html>
     <head>
         <title>@Page.Title</title>
-        <!-- iTasks Template Style, Script Files -->
         <link rel="stylesheet" href="@Url.Content("~/Content/iTasksTemplate/")css/owl.carousel.css">
         <link rel="stylesheet" href="@Url.Content("~/Content/iTasksTemplate/")css/bootstrap.min.css">
         <link rel="stylesheet" href="@Url.Content("~/Content/iTasksTemplate/")css/font-awesome.min.css">
@@ -10,6 +9,7 @@
         <link rel="stylesheet" href="@Url.Content("~/Content/iTasksTemplate/")css/ionicons.min.css">
         <link rel="stylesheet" href="@Url.Content("~/Content/iTasksTemplate/")css/animate.css">
         <link rel="stylesheet" href="@Url.Content("~/Content/iTasksTemplate/")css/responsive.css">
+       
 
         <script src="@Url.Content("~/Content/iTasksTemplate/")js/vendor/modernizr-2.6.2.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -19,7 +19,8 @@
         <script src="@Url.Content("~/Content/iTasksTemplate/")js/plugins.js"></script>
         <script src="@Url.Content("~/Content/iTasksTemplate/")js/min/waypoints.min.js"></script>
         <script src="@Url.Content("~/Content/iTasksTemplate/")js/jquery.counterup.js"></script>
-
+        <script src="@Url.Content("~/Content/iTasksTemplate/")js/main.js"></script>
+        @Scripts.Render("~/bundles/modernizr")
 
     </head>
     <body>
@@ -42,10 +43,9 @@
                                 </div>
                                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                     <ul class="nav navbar-nav navbar-right">
-                                        <li>@Html.ActionLink("Home", "Index")</li>
-                                        <li>@Html.ActionLink("Login", "Index")</li>
-                                        <li>@Html.ActionLink("Register", "Index")</li>
-                                        <li>@Html.ActionLink("Contact", "Index")</li>
+                                        <li>@Html.ActionLink("Home", "Index" , "Home")</li>
+                                        <li>@Html.ActionLink("Contact", "Contact" ,"Home" )</li>
+                                        @Html.Partial("_LoginPartial")
                                         <li>
                                             <div style="padding:3px 0 0 10px; " class="btn-group" data-toggle="buttons">
                                               <label class="btn btn-success active ">
@@ -63,25 +63,17 @@
             </div>
         </header>
 
-        <div class="body-content">@RenderBody()</div>
+        <div class="body" >@RenderBody()</div>
         
         <footer>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                       @* <div class="footer-manu">
-                          <ul>
-                              <li><a href="#">About Us</a></li>
-                              <li><a href="#">Contact us</a></li>
-                              <li><a href="#">How it works</a></li>
-                              <li><a href="#">Support</a></li>
-                              <li><a href="#">Terms</a></li>
-                          </ul
-                          </div>*@
                         <p>Copyright &copy; Designed by @Html.ActionLink("iTasks.com","Index","Home")</p>
                     </div>
                 </div>
             </div>
         </footer>
+        @RenderSection("scripts", required: false)
     </body>
 </html>

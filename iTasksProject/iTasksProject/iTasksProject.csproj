@@ -201,6 +201,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612061003106_InitialCreate.cs" />
+    <Compile Include="Migrations\201612061003106_InitialCreate.Designer.cs">
+      <DependentUpon>201612061003106_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612131211240_iTask.cs" />
+    <Compile Include="Migrations\201612131211240_iTask.Designer.cs">
+      <DependentUpon>201612131211240_iTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -218,14 +227,26 @@
     <Content Include="Content\iTasksTemplate\css\bootstrap.min.css" />
     <Content Include="Content\iTasksTemplate\css\font-awesome.min.css" />
     <Content Include="Content\iTasksTemplate\css\ionicons.min.css" />
+    <Content Include="Content\iTasksTemplate\css\LoginStyle.css" />
     <Content Include="Content\iTasksTemplate\css\owl.carousel.css" />
     <Content Include="Content\iTasksTemplate\css\responsive.css" />
     <Content Include="Content\iTasksTemplate\css\style.css" />
     <Content Include="Content\iTasksTemplate\img\iTasksLogo001.png" />
     <Content Include="Content\iTasksTemplate\img\iTasksLogo002.png" />
+    <Content Include="Content\iTasksTemplate\img\slider-bg.jpg" />
     <Content Include="Content\iTasksTemplate\img\Splash.png" />
     <Content Include="Content\iTasksTemplate\img\SuccessBackground.jpg" />
     <Content Include="Content\iTasksTemplate\img\SuccessBackground01.jpg" />
+    <Content Include="Content\iTasksTemplate\js\bootstrap.min.js" />
+    <Content Include="Content\iTasksTemplate\js\jquery.counterup.js" />
+    <Content Include="Content\iTasksTemplate\js\jquery.min.js" />
+    <Content Include="Content\iTasksTemplate\js\login.js" />
+    <Content Include="Content\iTasksTemplate\js\main.js" />
+    <Content Include="Content\iTasksTemplate\js\main.min.js" />
+    <Content Include="Content\iTasksTemplate\js\owl.carousel.min.js" />
+    <Content Include="Content\iTasksTemplate\js\plugins.js" />
+    <Content Include="Content\iTasksTemplate\js\plugins.min.js" />
+    <Content Include="Content\iTasksTemplate\js\waypoints.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -282,10 +303,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_iTasksLayout.cshtml" />
+    <Content Include="Views\Account\RegisterOrLogin.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\iTasksTemplate\fonts\" />
-    <Folder Include="Content\iTasksTemplate\js\" />
     <Folder Include="Content\iTasksTemplate\less\" />
   </ItemGroup>
   <ItemGroup>
@@ -295,6 +317,14 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201612061003106_InitialCreate.resx">
+      <DependentUpon>201612061003106_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612131211240_iTask.resx">
+      <DependentUpon>201612131211240_iTask.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -314,7 +344,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>59885</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44308/</IISUrl>
+          <IISUrl>http://localhost:59885/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
