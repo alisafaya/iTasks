@@ -25,12 +25,15 @@
                     <div class="block">
                         @Html.AntiForgeryToken()
                         <div class="form-group">
+                            @Html.ValidationMessageFor(m => m.userName, "", new { @class = "text-danger" })
                             @Html.TextBoxFor(m => m.userName, new { @class = "form-control", @placeholder = "Your name" })
                         </div>
                         <div class="form-group">
+                            @Html.ValidationMessageFor(m => m.userEmail, "", new { @class = "text-danger" })
                             @Html.TextBoxFor(m => m.userEmail, new { @class = "form-control", @placeholder = "Email address" })
                         </div>
                         <div class="form-group">
+                            @Html.ValidationMessageFor(m => m.subject, "", new { @class = "text-danger" })
                             @Html.TextBoxFor(m => m.subject, new { @class = "form-control", @placeholder = "Subject" })
                         </div>
 
@@ -39,6 +42,7 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="block">
                         <div class="form-group-2">
+                            @Html.ValidationMessageFor(m => m.message, "", new { @class = "text-danger" })
                             @Html.TextAreaFor(m => m.message, new { @rows = "3", @class = "form-control", @placeholder = "Your message" })
                         </div>
                         <button class="btn btn-default" type="submit">Send Message</button>

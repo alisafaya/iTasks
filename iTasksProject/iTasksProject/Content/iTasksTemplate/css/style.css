@@ -714,6 +714,67 @@ font header .navbar-default .navbar-nav li a:hover {
 /*---------------------------------------------
 					Work Close 
 -----------------------------------------------*/
+/*
+
+    Profile Page
+
+*/
+#slider2 {
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 10% 50%;
+    padding: 65px 0 25px 0;
+    position: relative;
+}
+
+#slider2:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    border-bottom: 1px #00ff1e solid;
+}
+
+#slider2 .block {
+    float:none;
+    color: #E3E3E4;
+}
+
+.h1Heading {
+    font-weight: 200;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    line-height: 50px;
+    letter-spacing: 7px;
+    padding: 10px;
+}
+
+.h2Heading {
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    line-height: 50px;
+    letter-spacing: 3px;
+    padding: 10px;
+}
+
+#slider2 .block p {
+    font-size: 23px;
+    line-height: 40px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    letter-spacing: 3px;
+}
+/*--
+	slider-contact Start 
+--*/
+
+
 /*=============================================*/
 /*---------------------------------------------
 					 Contact Start 

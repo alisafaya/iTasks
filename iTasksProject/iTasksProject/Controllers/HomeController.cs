@@ -10,6 +10,8 @@ namespace iTasksProject.Controllers
     
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult Index()
         {
             return View();
@@ -28,13 +30,19 @@ namespace iTasksProject.Controllers
 
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Contact( ContactMessageModel model)
+        public ActionResult Contact([Bind(Include = "Id,userName,userEmail,subject,message")] ContactMessageModel contactMessageModel)
         {
-            //save message to db
+            if (ModelState.IsValid)
+            {
+                db.ContactMessageModels.Add(contactMessageModel);
+                db.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
 
-            return View();
+            return View(contactMessageModel);
         }
     }
 }

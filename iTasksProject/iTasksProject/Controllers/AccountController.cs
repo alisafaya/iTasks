@@ -9,6 +9,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using iTasksProject.Models;
+using Microsoft.AspNet.Identity;
+
+
 
 
 namespace iTasksProject.Controllers
@@ -16,6 +19,8 @@ namespace iTasksProject.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+
+
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 

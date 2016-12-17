@@ -13,6 +13,8 @@ namespace iTasksProject.Controllers
     [Authorize]
     public class ManageController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -49,29 +51,39 @@ namespace iTasksProject.Controllers
                 _userManager = value;
             }
         }
+        public ActionResult ProfileImage()
+        {
+            var image = db.Users.Find(User.Identity.GetUserId()).ProfilePhoto;
+            if (image != null)
+            {
+                return File(image, "image/jpg", "ProfilePhoto.jpg");
+            }
+            else return null;
+        }
+
+        // GET: Profile Image
+        public ActionResult CoverImage()
+        {
+            var image = db.Users.Find(User.Identity.GetUserId()).CoverPhoto;
+            if (image != null)
+            {
+                return File(image, "image/jpg", "CoverPhoto.jpg");
+            }
+            
+            else return null;
+        }
 
         //
         // GET: /Manage/Index
-        public async Task<ActionResult> Index(ManageMessageId? message)
+        public ActionResult Index(ManageMessageId? message)
         {
-            ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set."
-                : message == ManageMessageId.Error ? "An error has occurred."
-                : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
-                : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
-                : "";
+            string userId = User.Identity.GetUserId();
+            string userName = db.Users.Find(userId).UserName;
+            string shortName = userName.Split(' ')[0];
+            string Email = db.Users.Find(userId).Email;
+            string Phone = db.Users.Find(userId).PhoneNumber == null ? "No phone number added." : db.Users.Find(userId).PhoneNumber;
 
-            var userId = User.Identity.GetUserId();
-            var model = new IndexViewModel
-            {
-                HasPassword = HasPassword(),
-                PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
-                TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
-                Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
-            };
+            var model = new IndexViewModel { UserName = userName, Email = Email, PhoneNumber = Phone , Id =userId , shortName = shortName};
             return View(model);
         }
 

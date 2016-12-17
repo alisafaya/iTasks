@@ -131,7 +131,7 @@ namespace iTasksProject.Models
         [EmailAddress]
         public string userEmail { get; set; }
 
-        [StringLength(64, ErrorMessage = "The Subject must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(64, ErrorMessage = "The Subject must be at least {2} characters long.", MinimumLength = 3)]
         public string subject { get; set; }
 
         public string message { get; set; }

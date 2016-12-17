@@ -10,7 +10,6 @@ namespace iTasksProject.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "iTasksProject.Models.ApplicationDbContext";
         }
 
         protected override void Seed(iTasksProject.Models.ApplicationDbContext context)
@@ -27,6 +26,7 @@ namespace iTasksProject.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            
         }
     }
 }

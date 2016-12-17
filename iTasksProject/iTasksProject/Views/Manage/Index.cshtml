@@ -1,84 +1,48 @@
 ﻿@model iTasksProject.Models.IndexViewModel
 @{
     ViewBag.Title = "Manage";
+    ViewBag.Image = Url.Action("CoverImage") == "/Manage/CoverImage" ? (Url.Content("~/Content/iTasksTemplate/") + "img/default-cover.jpg") : Url.Action("CoverImage");
 }
-
-<h2>@ViewBag.Title.</h2>
-
-<p class="text-success">@ViewBag.StatusMessage</p>
-<div>
-    <h4>Change your account settings</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>Password:</dt>
-        <dd>
-            [
-            @if (Model.HasPassword)
-            {
-                @Html.ActionLink("Change your password", "ChangePassword")
-            }
-            else
-            {
-                @Html.ActionLink("Create", "SetPassword")
-            }
-            ]
-        </dd>
-        <dt>External Logins:</dt>
-        <dd>
-            @Model.Logins.Count [
-            @Html.ActionLink("Manage", "ManageLogins") ]
-        </dd>
-        @*
-            Phone Numbers can used as a second factor of verification in a two-factor authentication system.
-             
-             See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
-                for details on setting up this ASP.NET application to support two-factor authentication using SMS.
-             
-             Uncomment the following block after you have set up two-factor authentication
-        *@
-        @*  
-            <dt>Phone Number:</dt>
-            <dd>
-                @(Model.PhoneNumber ?? "None") [
-                @if (Model.PhoneNumber != null)
+<section id="slider2" style="background: url(@ViewBag.Image) no-repeat;background-size:cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <img class="img-responsive img-thumbnail" src="@Url.Action("ProfileImage")" style="width:100%;text-align:center;" alt="Profile Image" />
+                @using (Html.BeginForm("ProfileImage", "Image", FormMethod.Post,new { enctype = "multipart/form-data" }))
                 {
-                    @Html.ActionLink("Change", "AddPhoneNumber")
-                    @: &nbsp;|&nbsp;
-                    @Html.ActionLink("Remove", "RemovePhoneNumber")
+                    @Html.AntiForgeryToken()
+                    <input type="file" name="file" id="file" class="btn animated fadeInUp" style="padding:1px 5px;width:25%;margin-top:15px;background-color:whitesmoke;color:#397b20;border-color:#e3e3e3;" />
+                    <input class="btn animated fadeInUp" type="submit" value="Change" style="padding:1px 5px;width:25%;margin-top:15px;background-color:whitesmoke;color:#397b20;border-color:#e3e3e3;"/>
+                    <div class="btn animated fadeInUp pull-right" style="padding:1px 5px;width:25%;margin-top:15px;background-color:whitesmoke;border-color:#e3e3e3;">@Html.ActionLink("Delete", "DeleteProfileImage", "Image", new { @area = "" }, new { @style = "color:#397b20;" })</div>
                 }
-                else
-                {
-                    @Html.ActionLink("Add", "AddPhoneNumber")
-                }
-                ]
-            </dd>
-        *@
-        <dt>Two-Factor Authentication:</dt>
-        <dd>
-            <p>
-                There are no two-factor authentication providers configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
-                for details on setting up this ASP.NET application to support two-factor authentication.
-            </p>
-            @*@if (Model.TwoFactor)
-                {
-                    using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <text>Enabled
-                        <input type="submit" value="Disable" class="btn btn-link" />
-                        </text>
-                    }
-                }
-                else
-                {
-                    using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <text>Disabled
-                        <input type="submit" value="Enable" class="btn btn-link" />
-                        </text>
-                    }
-                }*@
-        </dd>
-    </dl>
-</div>
+            </div>
+            <div class="col-md-offset-10 col-md-2 col-xs-12 pull-right">
+                <div class="btn animated fadeInUp " style="padding:3px;margin-top:15%; width:100%; background-color:whitesmoke;border-color:#e3e3e3;">@Html.ActionLink("Register Now !", "Register", "Account", new { @area = "" }, new { @style = "color:#397b20;" })</div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="row" style="background-color:#F5F5F5;">
+        <h1 class="h1Heading col-md-offset-2 col-md-6 col-sm-offset-2  col-xs-offset-2 col-sm-6">Hello, @Model.shortName !</h1>
+    </div>
+    <div class="row" style="background-color:#FFFFFF;margin:65px;">
+        <div class="col-md-6 col-sm-12 col-md-offset-2 col-sm-offset-2 col-xs-offset-1">
+            <div class="block" >
+                <div class="h2Heading">
+                    User Name : @Model.UserName
+                </div>
+                <div class="h2Heading">
+                    Email : @Model.Email
+                </div>
+                <div class="h2Heading">
+                    Phone number: @Model.PhoneNumber
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="btn animated fadeInUp pull-right" style="padding:3px;margin-top:28%; width:47%; background-color:whitesmoke;border-color:#e3e3e3;">@Html.ActionLink("Register Right !", "Register", "Account", new { @area = "" }, new { @style = "color:#397b20;" })</div>
+            <div class="btn animated fadeInUp pull-left" style="padding:3px;margin-top:28%; width:47%; background-color:whitesmoke;border-color:#e3e3e3;">@Html.ActionLink("Register Left !", "Register", "Account", new { @area = "" }, new { @style = "color:#397b20;" })</div>
+        </div>
+    </div>
+</section>
