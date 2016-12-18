@@ -450,7 +450,49 @@ font header .navbar-default .navbar-nav li a:hover {
     position: relative;
     background-attachment: fixed;
 }
-
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.profile-btn {
+        padding:1px 5px;
+        margin: 5px 5%;
+        background-color:whitesmoke;
+        color:#397b20;
+        border-color:#e3e3e3;
+    }
+.editinfo-form{
+        background: rgba(174, 246, 182, 0.49);
+height: 60px;
+border: 1px solid #EEF2F6;
+box-shadow: none;
+width: 100%;
+padding: 6px 12px;
+font-size: 14px;
+line-height: 1.42857143;
+color: #555;
+    }
+    .edit-btn{
+        margin:35px 0;
+        width: 100%;
+height: 40px;
+background: rgb(80, 190, 108);
+border: none;
+color: #fff;
+font-family: 'Open Sans', sans-serif;
+font-size: 18px;
+    }
     #global-header:before {
         content: "";
         position: absolute;

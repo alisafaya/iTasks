@@ -8,8 +8,14 @@ namespace iTasksProject.Models
     public class IndexViewModel
     {
         public string Id { get; set; }
+
+        [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
+
         public string Email { get; set; }
+
+        [Required]
+        [StringLength(32, ErrorMessage = "The Subject must be at least {2} characters long.", MinimumLength = 4)]
         public string UserName { get; set; }
         public string shortName { get; set; }
     }

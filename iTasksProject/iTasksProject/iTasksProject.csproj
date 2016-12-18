@@ -227,6 +227,7 @@
     <Content Include="Content\iTasksTemplate\css\responsive.css" />
     <Content Include="Content\iTasksTemplate\css\style.css" />
     <Content Include="Content\iTasksTemplate\img\default-cover.jpg" />
+    <Content Include="Content\iTasksTemplate\img\default-profile.png" />
     <Content Include="Content\iTasksTemplate\img\iTasksLogo001.png" />
     <Content Include="Content\iTasksTemplate\img\iTasksLogo002.png" />
     <Content Include="Content\iTasksTemplate\img\slider-bg.jpg" />
@@ -306,6 +307,7 @@
     <Content Include="Views\ContactMessageModels\Details.cshtml" />
     <Content Include="Views\ContactMessageModels\Edit.cshtml" />
     <Content Include="Views\ContactMessageModels\Index.cshtml" />
+    <Content Include="Views\Manage\EditMyInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

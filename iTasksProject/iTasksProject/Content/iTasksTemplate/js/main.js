@@ -9,8 +9,15 @@ $(document).ready(function(){
 	    singleItem:true,
 	    autoPlay: 3000,
 	});
-
-
+	
+   
+    $('input:file').change(
+            function () {
+                if ($(this).val()) {
+                    $('input:submit').attr('disabled', false);
+                }
+            }
+    );
 
 
 	$("#clients-logo").owlCarousel({

@@ -34,9 +34,9 @@ namespace iTasksProject.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -51,6 +51,34 @@ namespace iTasksProject.Controllers
                 _userManager = value;
             }
         }
+
+        public ActionResult EditMyInfo()
+        {
+            string userId = User.Identity.GetUserId();
+            string userName = db.Users.Find(userId).UserName;
+            string shortName = userName.Split(' ')[0];
+            string Email = db.Users.Find(userId).Email;
+            string Phone = db.Users.Find(userId).PhoneNumber == null ? "No phone number added." : db.Users.Find(userId).PhoneNumber;
+
+            var model = new IndexViewModel { UserName = userName, Email = Email, PhoneNumber = Phone, Id = userId, shortName = shortName };
+            return View(model);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditMyInfo(IndexViewModel model)
+        {
+            if (ModelState.IsValid) {
+                string userId = User.Identity.GetUserId();
+                db.Users.Find(userId).UserName = model.UserName;
+                db.Users.Find(userId).PhoneNumber = model.PhoneNumber;
+                db.SaveChanges();
+                return RedirectToAction("Index","Manage");
+            }
+            return RedirectToAction("EditMyInfo", "Manage");
+        }
+
         public ActionResult ProfileImage()
         {
             var image = db.Users.Find(User.Identity.GetUserId()).ProfilePhoto;
@@ -58,7 +86,7 @@ namespace iTasksProject.Controllers
             {
                 return File(image, "image/jpg", "ProfilePhoto.jpg");
             }
-            else return null;
+            else return Content(Url.Content("~/Content/iTasksTemplate") + "/img/default-profile.png");
         }
 
         // GET: Profile Image
@@ -69,8 +97,7 @@ namespace iTasksProject.Controllers
             {
                 return File(image, "image/jpg", "CoverPhoto.jpg");
             }
-            
-            else return null;
+            else return new EmptyResult();
         }
 
         //
@@ -81,7 +108,7 @@ namespace iTasksProject.Controllers
             string userName = db.Users.Find(userId).UserName;
             string shortName = userName.Split(' ')[0];
             string Email = db.Users.Find(userId).Email;
-            string Phone = db.Users.Find(userId).PhoneNumber == null ? "No phone number added." : db.Users.Find(userId).PhoneNumber;
+            string Phone = db.Users.Find(userId).PhoneNumber;
 
             var model = new IndexViewModel { UserName = userName, Email = Email, PhoneNumber = Phone , Id =userId , shortName = shortName};
             return View(model);
@@ -248,7 +275,7 @@ namespace iTasksProject.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
-                return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
+                return RedirectToAction("Index","Manage");
             }
             AddErrors(result);
             return View(model);

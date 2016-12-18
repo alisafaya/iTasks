@@ -1,34 +1,45 @@
 ﻿@model iTasksProject.Models.IndexViewModel
 @{
-    ViewBag.Title = "Manage";
-    ViewBag.Image = Url.Action("CoverImage") == "/Manage/CoverImage" ? (Url.Content("~/Content/iTasksTemplate/") + "img/default-cover.jpg") : Url.Action("CoverImage");
+    ViewBag.Title = "My Profile";
+    ViewBag.ProfileImage = Url.Action("ProfileImage") == "/Manage/ProfileImage" ? Url.Content("~/Content/iTasksTemplate") + "/img/default-profile.png" : Url.Action("ProfileImage");
 }
-<section id="slider2" style="background: url(@ViewBag.Image) no-repeat;background-size:cover;">
+<section id="slider2" style="background: url('@Url.Action("CoverImage")') no-repeat;background-size:cover;">
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
-                <img class="img-responsive img-thumbnail" src="@Url.Action("ProfileImage")" style="width:100%;text-align:center;" alt="Profile Image" />
-                @using (Html.BeginForm("ProfileImage", "Image", FormMethod.Post,new { enctype = "multipart/form-data" }))
+            <div class="col-md-3 col-sm-6 col-xs-6">
+                <img class="img-responsive img-thumbnail" src='@Url.Action("ProfileImage")' style="width:100%;text-align:center;margin-bottom:15px;" alt="Profile Image" />
+                @using (Html.BeginForm("ProfileImage", "Image", FormMethod.Post, new { enctype = "multipart/form-data", @class = "row" }))
                 {
                     @Html.AntiForgeryToken()
-                    <input type="file" name="file" id="file" class="btn animated fadeInUp" style="padding:1px 5px;width:25%;margin-top:15px;background-color:whitesmoke;color:#397b20;border-color:#e3e3e3;" />
-                    <input class="btn animated fadeInUp" type="submit" value="Change" style="padding:1px 5px;width:25%;margin-top:15px;background-color:whitesmoke;color:#397b20;border-color:#e3e3e3;"/>
-                    <div class="btn animated fadeInUp pull-right" style="padding:1px 5px;width:25%;margin-top:15px;background-color:whitesmoke;border-color:#e3e3e3;">@Html.ActionLink("Delete", "DeleteProfileImage", "Image", new { @area = "" }, new { @style = "color:#397b20;" })</div>
+                    <div class="fileUpload btn profile-btn col-md-4" style="width:90%;">
+                        <span>Upload</span>
+                        <input type="file" name="file" id="file"  class="upload" />
+                    </div>
+                    <input class="btn animated fadeInUp profile-btn col-md-4" style="width:90%;" type="submit" value="Submit" disabled />
+                    <div class="btn animated fadeInUp profile-btn col-md-4" style="width:90%;">@Html.ActionLink("Delete", "DeleteProfile", "Image", new { @area = "" }, new { @style = "color:#397b20;" })</div>
                 }
             </div>
-            <div class="col-md-offset-10 col-md-2 col-xs-12 pull-right">
-                <div class="btn animated fadeInUp " style="padding:3px;margin-top:15%; width:100%; background-color:whitesmoke;border-color:#e3e3e3;">@Html.ActionLink("Register Now !", "Register", "Account", new { @area = "" }, new { @style = "color:#397b20;" })</div>
-            </div>
+            <div class="col-lg-12"></div>
         </div>
+        @using (Html.BeginForm("CoverImage", "Image", FormMethod.Post, new { enctype = "multipart/form-data", @class = "row" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="fileUpload btn profile-btn pull-right" style="margin:5px;">
+                <span>Upload</span>
+                <input type="file" name="file" id="file"  class="upload" />
+            </div>
+            <input class="btn animated fadeInUp profile-btn pull-right" type="submit" style="margin:5px;" value="Submit" disabled />
+            <div class="btn animated fadeInUp profile-btn pull-right" style="margin:5px;">@Html.ActionLink("Delete", "DeleteCover", "Image", new { @area = "" }, new { @style = "color:#397b20;" })</div>
+        }
     </div>
 </section>
 <section>
-    <div class="row" style="background-color:#F5F5F5;">
-        <h1 class="h1Heading col-md-offset-2 col-md-6 col-sm-offset-2  col-xs-offset-2 col-sm-6">Hello, @Model.shortName !</h1>
+    <div class="row" style="background-color:#F5F5F5;border-bottom: 1px #00ff1e solid;">
+        <h1 class="h1Heading col-md-offset-2 col-md-6 col-sm-offset-2 col-sm-6">Hello, @Model.shortName !</h1>
     </div>
-    <div class="row" style="background-color:#FFFFFF;margin:65px;">
-        <div class="col-md-6 col-sm-12 col-md-offset-2 col-sm-offset-2 col-xs-offset-1">
-            <div class="block" >
+    <div class="row" style="background-color:#FFFFFF;margin:65px auto;">
+        <div class="col-md-6 col-sm-12 col-md-offset-2 col-sm-offset-2">
+            <div class="block">
                 <div class="h2Heading">
                     User Name : @Model.UserName
                 </div>
@@ -41,8 +52,8 @@
             </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12">
-            <div class="btn animated fadeInUp pull-right" style="padding:3px;margin-top:28%; width:47%; background-color:whitesmoke;border-color:#e3e3e3;">@Html.ActionLink("Register Right !", "Register", "Account", new { @area = "" }, new { @style = "color:#397b20;" })</div>
-            <div class="btn animated fadeInUp pull-left" style="padding:3px;margin-top:28%; width:47%; background-color:whitesmoke;border-color:#e3e3e3;">@Html.ActionLink("Register Left !", "Register", "Account", new { @area = "" }, new { @style = "color:#397b20;" })</div>
+            <div class="btn animated fadeInUp" style="padding:3px;margin-top:20%; width:75%; background-color:whitesmoke;border-color:#e3e3e3;">@Html.ActionLink("Edit my info", "EditMyInfo", "Manage", new { @area = "" }, new { @style = "color:#397b20;" })</div>
+            <div class="btn animated fadeInUp" style="padding:3px;margin-top:3%; width:75%; background-color:whitesmoke;border-color:#e3e3e3;">@Html.ActionLink("Change my password", "ChangePassword", "Manage", new { @area = "" }, new { @style = "color:#397b20;" })</div>
         </div>
     </div>
 </section>

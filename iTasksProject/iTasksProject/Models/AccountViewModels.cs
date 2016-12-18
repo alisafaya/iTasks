@@ -121,20 +121,5 @@ namespace iTasksProject.Models
         public string Email { get; set; }
     }
 
-    public class ContactMessageModel
-    {
-        public int Id { get; set; }
-
-        public string userName { get; set; }
-
-        [Required]
-        [EmailAddress]
-        public string userEmail { get; set; }
-
-        [StringLength(64, ErrorMessage = "The Subject must be at least {2} characters long.", MinimumLength = 3)]
-        public string subject { get; set; }
-
-        public string message { get; set; }
-
-    }
+    
 }

@@ -3,7 +3,7 @@
 {
     
         <li>
-            @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            @Html.ActionLink(User.Identity.GetUserName().Split(' ')[0], "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
         <li>@Html.ActionLink("Log off","LogOff", "Account")</li>
  
