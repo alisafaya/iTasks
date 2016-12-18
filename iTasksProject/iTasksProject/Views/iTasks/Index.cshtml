@@ -1,0 +1,119 @@
+﻿@model iTasksProject.Models.iTaskViewModel
+@using Microsoft.AspNet.Identity;
+@{
+    ViewBag.Title = "My Profile";
+    //ViewBag.ProfileImage = Url.Action("ProfileImage") == "/Manage/ProfileImage" ? Url.Content("~/Content/iTasksTemplate") + "/img/default-profile.png" : Url.Action("ProfileImage");
+}
+<section id="slider2" style="background: url('@Url.Action("CoverImage")') no-repeat;background-size:cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <img class="img-responsive img-thumbnail" src='@Url.Action("ProfileImage")' style="width:100%;text-align:center;margin-bottom:15px;" alt="Profile Image" />
+            </div>
+            <h1 class="h1Heading col-md-5 col-sm-6">Hello, @User.Identity.GetUserName().Split(' ')[0] !</h1>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="logmod col-md-offset-1 col-md-6" style="border:solid #e3e3e3;border-width:0px 3px;padding:0;">
+                <div class="logmod__wrapper">
+                    <div class="logmod__container">
+                        <ul class="logmod__tabs">
+                            <li class="current" data-tabtar="lgm-1">
+                                <a href="#">Daily Tasks</a>
+                            </li>
+                            <li class="" data-tabtar="lgm-2">
+                                <a href="#">Weekly Tasks</a>
+                            </li>
+                            <li class="" data-tabtar="lgm-3">
+                                <a href="#">Goals</a>
+                            </li>
+                        </ul>
+                        <div class="logmod__tab-wrapper">
+                            <div class="logmod__tab lgm-1 show">
+                                <div class="logmod__heading">
+                                    <span class="logmod__heading-subtitle">Here are the tasks that you do daily here</span>
+                                </div>
+                                @foreach (var item in Model.tasks)
+                                {
+                                    if (item.Type == iTasksProject.Models.iTaskType.Daily)
+                                    {
+                                        @Html.Partial("_iTask", item)
+                                    }
+                                }
+                            </div>
+                            <div class="logmod__tab lgm-2">
+                                <div class="logmod__heading">
+                                    <span class="logmod__heading-subtitle">Here are the tasks that you do weekly here</span>
+                                </div>
+                                @foreach (var item in Model.tasks)
+                                {
+                                    if (item.Type == iTasksProject.Models.iTaskType.Weekly)
+                                    {
+                                        @Html.Partial("_iTask", item)
+                                    }
+                                }
+                            </div>
+                            <div class="logmod__tab lgm-3">
+                                <div class="logmod__heading">
+                                    <span class="logmod__heading-subtitle">Here are the goals that you want to reach</span>
+                                </div>
+                                @foreach (var item in Model.tasks)
+                                {
+                                    if (item.Type == iTasksProject.Models.iTaskType.Goal)
+                                    {
+                                        @Html.Partial("_iTask", item)
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 col-sm-8">
+                <div class="block">
+                    @using (Html.BeginForm("Create", "iTasks", FormMethod.Post))
+                    {
+                        <div class="col-md-12 col-sm-12">
+                            <h2 class="h1Heading"> Task</h2>
+                            <div class="block">
+                                @Html.AntiForgeryToken()
+                                <div class="form-group">
+                                    <h2 class="h2Heading pull-left" style="padding:5px; margin-top: 0;margin-bottom: 0;line-height:25px">Name</h2>
+                                    @Html.ValidationMessageFor(m => m.task.Name, "", new { @class = "text-danger" })
+                                    @Html.TextBoxFor(m => m.task.Name, new { @class = "form-control editiTask-form pull-right", @placeholder = "Name" ,@style= "" })
+                                </div>
+                                <div class="form-group">
+                                    <h2 class="h2Heading pull-left" style="padding:5px;margin-top: 0;margin-bottom: 0;line-height:25px">Description</h2>
+                                    @Html.ValidationMessageFor(m => m.task.Description , "", new { @class = "text-danger" })
+                                    @Html.TextBoxFor(m => m.task.Description, new { @class = "form-control editiTask-form pull-right", @placeholder = "Description"})
+                                </div>
+                                <div class="form-group">
+                                    <h2 class="h2Heading pull-left" style="padding:5px;margin-top: 0;margin-bottom: 0;line-height:25px">Priority</h2>
+                                    @Html.ValidationMessageFor(m => m.task.Priority, "", new { @class = "text-danger" })
+                                    @Html.EnumDropDownListFor(m => m.task.Priority, new { @class = "form-control editiTask-form pull-right", @placeholder = "Priority" })
+                                </div>
+                                <div class="form-group">
+                                    <h2 class="h2Heading pull-left" style="padding:5px;margin-top: 0;margin-bottom: 0;line-height:25px">Type</h2>
+                                    @Html.ValidationMessageFor(m => m.task.Type, "", new { @class = "text-danger" })
+                                    @Html.EnumDropDownListFor(m => m.task.Type, new { @class = "form-control editiTask-form pull-right", @placeholder = "Type" })
+                                </div>
+                            </div>
+                            <button class="btn btn-default edit-btn" type="submit">Save</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section scripts {
+    <link rel="stylesheet" href="@Url.Content("~/Content/iTasksTemplate/")css/iTasksTableStyle.css">
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+    <script src='@Url.Content("~/Content/iTasksTemplate/")js/jquery.min.js'></script>
+    <script src="@Url.Content("~/Content/iTasksTemplate/")js/login.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+}

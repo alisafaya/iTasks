@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using iTasksProject.Resources
+<!DOCTYPE html>
 <html>
 <head>
     <title>@Page.Title</title>
@@ -43,18 +44,14 @@
                             </div>
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                                    <li>@Html.ActionLink(@lang.Home, "Index", "Home")</li>
+                                    <li>@Html.ActionLink(@lang.Contact, "Contact", "Home")</li>
                                     @Html.Partial("_LoginPartial")
                                     <li>
-                                        <div style="padding:3px 0 0 10px; " class="btn-group" data-toggle="buttons">
-                                            <label class="btn btn-success active ">
-                                                <input type="radio" />en
-                                            </label>
-                                            <label class="btn btn-success ">
-                                                <input type="radio" />tr
-                                            </label>
-                                        </div>
+                                        @Html.ActionLink("En ", "ChangeCulture", "Home", new { lang = "en", returnurl = this.Request.RawUrl }, new { @style = "padding-right:3px;" })
+                                    </li>                                                                                                      
+                                    <li>                                                                                                       
+                                        @Html.ActionLink("| Tr", "ChangeCulture", "Home", new { lang = "tr", returnUrl = this.Request.RawUrl }, new { @style = "padding-left:3px;" } )
                                     </li>
                                 </ul>
                             </div>
@@ -79,3 +76,4 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+

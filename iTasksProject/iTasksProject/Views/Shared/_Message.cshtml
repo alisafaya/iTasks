@@ -1,0 +1,18 @@
+﻿@using iTasksProject.Models
+@model ContactMessageModel
+
+<hr style="margin-top:15px;" />
+<div class="row">
+    <div class="col-md-4 col-sm-5 col-xs-5" style="padding-left:10px;margin-top:10px;">
+        <h5 style="margin:10px 0;">@Model.userName</h5>
+        <h5 style="margin:10px 0;">@Model.userEmail</h5>
+        <h5 style="margin:10px 0;">@Model.subject</h5>
+    </div>
+    <div class="col-md-6 col-sm-3 col-xs-3" style="text-align:left;border-left:solid 1px #e3e3e3;margin-top:15px;">
+        @Model.message
+    </div>
+    <div class="col-md-2 col-sm-2 col-xs-3 pull-right" style="padding-top:50px;">
+        @Html.ActionLink("Delete", "DeleteMessage", "Admin", new { id = Model.Id }, new { @class = "btn btn-default iTask-btn " })
+    </div>
+</div>
+

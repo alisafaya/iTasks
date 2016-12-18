@@ -24,12 +24,25 @@ namespace iTasksProject.Models
     public class iTask
     {
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
         public string Description { get; set; }
         public iTaskPriority Priority { get; set; }
         public bool Complete { get; set; }
         public iTaskType Type { get; set; }
         public virtual ApplicationUser User { get; set; }
+    }
+
+    public class AdminViewModel
+    {
+        public virtual List<ApplicationUser> Users { get; set; }
+        public virtual List<ContactMessageModel> Messages { get; set; }
+    }
+
+    public class iTaskViewModel
+    {
+        public iTask task { get; set; }
+        public List<iTask> tasks { get; set; }
     }
 
     public class ContactMessageModel
@@ -42,7 +55,6 @@ namespace iTasksProject.Models
         [EmailAddress]
         public string userEmail { get; set; }
 
-        [StringLength(64, ErrorMessage = "The Subject must be at least {2} characters long.", MinimumLength = 3)]
         public string subject { get; set; }
 
         public string message { get; set; }

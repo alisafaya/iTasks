@@ -1,15 +1,19 @@
 ﻿@using Microsoft.AspNet.Identity
+@using iTasksProject.Resources
 @if (Request.IsAuthenticated)
 {
     
         <li>
             @Html.ActionLink(User.Identity.GetUserName().Split(' ')[0], "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
-        <li>@Html.ActionLink("Log off","LogOff", "Account")</li>
+        <li>
+            @Html.ActionLink(lang.MyTasks, "Index", "iTasks")
+        </li>
+        <li>@Html.ActionLink(lang.Logoff,"LogOff", "Account")</li>
  
 }
 else
 {
-    <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    <li>@Html.ActionLink(lang.Register, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+    <li>@Html.ActionLink(lang.Login, "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
 }

@@ -1,0 +1,49 @@
+﻿@using iTasksProject.Models
+@using Microsoft.AspNet.Identity
+@model AdminViewModel
+@{
+    ViewBag.Title = "Admin Panel";
+}
+<section id="slider2" style="background: url('@Url.Action("CoverImage")') no-repeat;background-size:cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <img class="img-responsive img-thumbnail" src='@Url.Action("ProfileImage")' style="width:100%;text-align:center;margin-bottom:15px;" alt="Profile Image" />
+            </div>
+            <h1 class="h1Heading col-md-5 col-sm-6">Hello, @User.Identity.GetUserName().Split(' ')[0] !</h1>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6" style="border:solid #e3e3e3;border-width:0px 1px;">
+                <h2 class="h1Heading">Users</h2>
+                <div class="block">
+                    @foreach (var item in Model.Users)
+                    {
+                        @Html.Partial("_User", item)
+                    }
+                </div>
+            </div>
+            <div class="col-md-6" style="border:solid #e3e3e3;border-width:0px 1px;">
+                <h2 class="h1Heading">Contact messages</h2>
+                <div class="block">
+                    @foreach (var item in Model.Messages)
+                    {
+                        @Html.Partial("_Message",item)
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section scripts {
+    <link rel="stylesheet" href="@Url.Content("~/Content/iTasksTemplate/")css/iTasksTableStyle.css">
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+    <script src='@Url.Content("~/Content/iTasksTemplate/")js/jquery.min.js'></script>
+    <script src="@Url.Content("~/Content/iTasksTemplate/")js/login.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+}
+

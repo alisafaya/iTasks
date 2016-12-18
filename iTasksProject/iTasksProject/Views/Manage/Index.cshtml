@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "My Profile";
     ViewBag.ProfileImage = Url.Action("ProfileImage") == "/Manage/ProfileImage" ? Url.Content("~/Content/iTasksTemplate") + "/img/default-profile.png" : Url.Action("ProfileImage");
+    ViewBag.PhoneNumber = Model.PhoneNumber == null ? "No phone number added" : Model.PhoneNumber;
 }
 <section id="slider2" style="background: url('@Url.Action("CoverImage")') no-repeat;background-size:cover;">
     <div class="container">
@@ -47,7 +48,7 @@
                     Email : @Model.Email
                 </div>
                 <div class="h2Heading">
-                    Phone number: @Model.PhoneNumber
+                    Phone number: @ViewBag.PhoneNumber
                 </div>
             </div>
         </div>

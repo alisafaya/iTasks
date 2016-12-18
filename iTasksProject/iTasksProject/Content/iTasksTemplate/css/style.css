@@ -483,6 +483,18 @@ font-size: 14px;
 line-height: 1.42857143;
 color: #555;
     }
+.editiTask-form{
+    margin-top: 5px;
+    margin-bottom:2px;
+    line-height:25px;
+        background: rgba(174, 246, 182, 0.49);
+border: 1px solid #EEF2F6;
+box-shadow: none;
+width: 100%;
+padding: 6px 12px;
+font-size: 14px;
+color: #555;
+    }
     .edit-btn{
         margin:35px 0;
         width: 100%;
@@ -492,6 +504,17 @@ border: none;
 color: #fff;
 font-family: 'Open Sans', sans-serif;
 font-size: 18px;
+    }
+    .iTask-btn{
+        margin:2px;
+        width:85%;
+        height:20px;
+        font-size:12px;
+        line-height:0.8;
+        background: rgb(80, 190, 108);
+        border: none;
+        color: #fff;
+        font-family: 'Open Sans', sans-serif;
     }
     #global-header:before {
         content: "";

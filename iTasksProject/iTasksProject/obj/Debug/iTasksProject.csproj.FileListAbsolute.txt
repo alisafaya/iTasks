@@ -164,3 +164,11 @@ C:\Users\Casemice\Documents\itasksproject\iTasksProject\iTasksProject\obj\Debug\
 C:\Users\Casemice\Documents\itasksproject\iTasksProject\iTasksProject\obj\Debug\iTasksProject.pdb
 C:\Users\Casemice\Documents\itasksproject\iTasksProject\iTasksProject\obj\Debug\iTasksProject.Migrations.itasks.resources
 C:\Users\Casemice\Documents\itasksproject\iTasksProject\iTasksProject\obj\Debug\iTasksProject.csproj.GenerateResource.Cache
+C:\Users\Casemice\Documents\itasksproject\iTasksProject\iTasksProject\obj\Debug\iTasksProject.Migrations.Refresh.resources
+C:\Users\Casemice\Documents\itasksproject\iTasksProject\iTasksProject\obj\Debug\iTasksProject.Migrations.RefreshContact.resources
+C:\Users\Casemice\Documents\itasksproject\iTasksProject\iTasksProject\obj\Debug\iTasksProject.Migrations.RefreshContact01.resources
+C:\Users\Casemice\Documents\itasksproject\iTasksProject\iTasksProject\obj\Debug\iTasksProject.Migrations.RefreshContact02.resources
+C:\Users\Casemice\Documents\itasksproject\iTasksProject\iTasksProject\bin\en\iTasksProject.resources.dll
+C:\Users\Casemice\Documents\itasksproject\iTasksProject\iTasksProject\obj\Debug\iTasksProject.Resources.lang.resources
+C:\Users\Casemice\Documents\itasksproject\iTasksProject\iTasksProject\obj\Debug\iTasksProject.Resources.lang.en.resources
+C:\Users\Casemice\Documents\itasksproject\iTasksProject\iTasksProject\obj\Debug\en\iTasksProject.resources.dll

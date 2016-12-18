@@ -9,6 +9,7 @@ using System.IO;
 
 namespace iTasksProject.Controllers
 {
+    [Authorize]
     public class ImageController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

@@ -1,7 +1,7 @@
-﻿@{
+﻿@using iTasksProject.Resources
+@{
     ViewBag.Title = "Home Page";
 }
-
 <section id="slider">
     <div class="container">
         <div class="row">
@@ -12,9 +12,9 @@
                 <div class="block">
                     <br /><br />
                     <h1 class="animated fadeInUp">iTasks.</h1>
-                    <p class="animated fadeInUp">Are you tired organizing your tasks ?<br/>Can not you remember everything at the same time ?<br/>iTasks is what you need</p>
+                    <p class="animated fadeInUp">@lang.Definition1<br/>@lang.Definition2<br/>@lang.Definition3</p>
                 </div>
-                <div class="btn animated fadeInUp" style="padding:5px 200px;background-color:whitesmoke;border-color:#e3e3e3;">@Html.ActionLink("Register Now !", "Register","Account", new { @area = "" }, new { @style = "color:#397b20;" })</div>
+                <div class="btn animated fadeInUp" style="padding:5px 200px;background-color:whitesmoke;border-color:#e3e3e3;">@Html.ActionLink(@lang.RegisterNow + " !", "Register","Account", new { @area = "" }, new { @style = "color:#397b20;" })</div>
             </div>
         </div>
     </div>
@@ -24,11 +24,11 @@
         <div class="row">
             <div class="col-md-7 col-sm-12">
                 <div class="block">
-                    <div class="section-title" >
-                        <h2>What is iTasks</h2>
-                        <p>iTasks application allow you to manage, organize and save your tasks with your iTasks free account.</p>
-                        <p>Download our ios / android application and sychronize your task between your phone and your pc.</p>
-                        <p>Access your tasks from any device with one account</p>
+                    <div class="section-title">
+                        <h2>@lang.Definition4</h2>
+                        <p>@lang.Definition5</p>
+                        <p>@lang.Definition6</p>
+                        <p>@lang.Definition7</p>
                     </div>
                 </div>
             </div>

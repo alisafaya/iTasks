@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using iTasksProject.Models;
+using System.Globalization;
 
 namespace iTasksProject.Controllers
 {
@@ -43,6 +44,10 @@ namespace iTasksProject.Controllers
             }
 
             return View(contactMessageModel);
+        }
+        public ActionResult ChangeCulture(string lang, string returnUrl) {
+            Session["Culture"] = new CultureInfo(lang);
+            return Redirect(returnUrl);
         }
     }
 }

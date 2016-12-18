@@ -196,9 +196,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ContactMessageModelsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\iTasksController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -207,33 +209,70 @@
     <Compile Include="Migrations\201612161302469_itasks.Designer.cs">
       <DependentUpon>201612161302469_itasks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612181747546_Refresh.cs" />
+    <Compile Include="Migrations\201612181747546_Refresh.Designer.cs">
+      <DependentUpon>201612181747546_Refresh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612181837174_RefreshContact.cs" />
+    <Compile Include="Migrations\201612181837174_RefreshContact.Designer.cs">
+      <DependentUpon>201612181837174_RefreshContact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612181850199_RefreshContact01.cs" />
+    <Compile Include="Migrations\201612181850199_RefreshContact01.Designer.cs">
+      <DependentUpon>201612181850199_RefreshContact01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612181854594_RefreshContact02.cs" />
+    <Compile Include="Migrations\201612181854594_RefreshContact02.Designer.cs">
+      <DependentUpon>201612181854594_RefreshContact02.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Attributes.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\iTasksModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\lang.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>lang.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\lang.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>lang.en.resx</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-iTasksProject-20161125033209.mdf" />
+    <Content Include="App_Data\aspnet-iTasksProject-20161125033209_log.ldf">
+      <DependentUpon>aspnet-iTasksProject-20161125033209.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\iTasksTemplate\css\animate.css" />
     <Content Include="Content\iTasksTemplate\css\bootstrap.min.css" />
     <Content Include="Content\iTasksTemplate\css\font-awesome.min.css" />
     <Content Include="Content\iTasksTemplate\css\ionicons.min.css" />
+    <Content Include="Content\iTasksTemplate\css\iTasksTableStyle.css" />
     <Content Include="Content\iTasksTemplate\css\LoginStyle.css" />
     <Content Include="Content\iTasksTemplate\css\owl.carousel.css" />
     <Content Include="Content\iTasksTemplate\css\responsive.css" />
     <Content Include="Content\iTasksTemplate\css\style.css" />
+    <Content Include="Content\iTasksTemplate\img\CheckList.png" />
+    <Content Include="Content\iTasksTemplate\img\Complete.png" />
     <Content Include="Content\iTasksTemplate\img\default-cover.jpg" />
     <Content Include="Content\iTasksTemplate\img\default-profile.png" />
+    <Content Include="Content\iTasksTemplate\img\Important.png" />
     <Content Include="Content\iTasksTemplate\img\iTasksLogo001.png" />
     <Content Include="Content\iTasksTemplate\img\iTasksLogo002.png" />
+    <Content Include="Content\iTasksTemplate\img\Reminder.png" />
     <Content Include="Content\iTasksTemplate\img\slider-bg.jpg" />
     <Content Include="Content\iTasksTemplate\img\Splash.png" />
     <Content Include="Content\iTasksTemplate\img\SuccessBackground.jpg" />
     <Content Include="Content\iTasksTemplate\img\SuccessBackground01.jpg" />
+    <Content Include="Content\iTasksTemplate\img\VeryImportant.png" />
     <Content Include="Content\iTasksTemplate\js\bootstrap.min.js" />
     <Content Include="Content\iTasksTemplate\js\jquery.counterup.js" />
     <Content Include="Content\iTasksTemplate\js\jquery.min.js" />
@@ -308,9 +347,18 @@
     <Content Include="Views\ContactMessageModels\Edit.cshtml" />
     <Content Include="Views\ContactMessageModels\Index.cshtml" />
     <Content Include="Views\Manage\EditMyInfo.cshtml" />
+    <Content Include="Views\iTasks\Create.cshtml" />
+    <Content Include="Views\iTasks\Delete.cshtml" />
+    <Content Include="Views\iTasks\Details.cshtml" />
+    <Content Include="Views\iTasks\Edit.cshtml" />
+    <Content Include="Views\iTasks\Index.cshtml" />
+    <Content Include="Views\Shared\_iTask.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\iTaskPriority.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Shared\_User.cshtml" />
+    <Content Include="Views\Shared\_Message.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Content\iTasksTemplate\fonts\" />
     <Folder Include="Content\iTasksTemplate\less\" />
     <Folder Include="Views\Image\" />
@@ -326,6 +374,26 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201612161302469_itasks.resx">
       <DependentUpon>201612161302469_itasks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612181747546_Refresh.resx">
+      <DependentUpon>201612181747546_Refresh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612181837174_RefreshContact.resx">
+      <DependentUpon>201612181837174_RefreshContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612181850199_RefreshContact01.resx">
+      <DependentUpon>201612181850199_RefreshContact01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612181854594_RefreshContact02.resx">
+      <DependentUpon>201612181854594_RefreshContact02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\lang.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>lang.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\lang.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>lang.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
