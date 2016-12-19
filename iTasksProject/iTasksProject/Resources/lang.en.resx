@@ -150,6 +150,9 @@
   <data name="Contact8" xml:space="preserve">
     <value>We Also Count In Google Map</value>
   </data>
+  <data name="ContactMessages" xml:space="preserve">
+    <value>Contact messages</value>
+  </data>
   <data name="Daily" xml:space="preserve">
     <value>Günlük</value>
   </data>
@@ -179,6 +182,9 @@
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
+  </data>
+  <data name="DeleteUser" xml:space="preserve">
+    <value>Delete user</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Description</value>
@@ -212,6 +218,9 @@
   </data>
   <data name="Logoff" xml:space="preserve">
     <value>Log off</value>
+  </data>
+  <data name="MakeAdmin" xml:space="preserve">
+    <value>Make admin</value>
   </data>
   <data name="Manage" xml:space="preserve">
     <value>Manage</value>
@@ -272,6 +281,9 @@
   </data>
   <data name="UserName" xml:space="preserve">
     <value>User Name</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Users</value>
   </data>
   <data name="VeryImportant" xml:space="preserve">
     <value>Very important</value>

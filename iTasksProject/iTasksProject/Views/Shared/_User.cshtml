@@ -1,7 +1,8 @@
 ﻿@using iTasksProject.Models
+@using iTasksProject.Resources
 @model ApplicationUser
 @{
-    ViewBag.PhoneNumber = Model.PhoneNumber == null ? "No phone number added" : Model.PhoneNumber;
+    ViewBag.PhoneNumber = Model.PhoneNumber == null ? @lang.NoPhoneNum : Model.PhoneNumber;
 }
 
 
@@ -11,12 +12,12 @@
         <img class="img-responsive img-thumbnail" src='@Url.Action("userImage", new { Id = Model.Id })' style="width:100%;text-align:center;" alt="Profile Image" />
     </div>
     <div class="col-md-5 col-sm-5 col-xs-5" style="padding-left:0;margin-top:25px;">
-        <h4 style="margin:10px 0;">Name : @Model.UserName</h4>
-        <h4 style="margin:10px 0;">Email : @Model.Email</h4>
-        <h4 style="margin:10px 0;">Phone : @ViewBag.PhoneNumber</h4>
+        <h4 style="margin:10px 0;">@lang.Name : @Model.UserName</h4>
+        <h4 style="margin:10px 0;">@lang.Email : @Model.Email</h4>
+        <h4 style="margin:10px 0;">@lang.PhoneNumber : @ViewBag.PhoneNumber</h4>
     </div>
     <div class="col-md-3 col-sm-3 col-xs-3 pull-right" style="padding-top:50px;">
-        @Html.ActionLink("Delete user", "DeleteUser", "Admin", new { id = Model.Id }, new { @class = "btn btn-default iTask-btn " })
-        @Html.ActionLink("Make admin ", "AddRoleToUser", "Admin", new { id = Model.Id }, new { @class = "btn btn-default iTask-btn" })
+        @Html.ActionLink(@lang.DeleteUser, "DeleteUser", "Admin", new { id = Model.Id }, new { @class = "btn btn-default iTask-btn " })
+        @Html.ActionLink(@lang.MakeAdmin, "AddRoleToUser", "Admin", new { id = Model.Id }, new { @class = "btn btn-default iTask-btn" })
     </div>
 </div>

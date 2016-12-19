@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -75,7 +76,16 @@ namespace iTasksProject.Controllers
             {
                 return File(image, "image/jpg", "ProfilePhoto.jpg");
             }
-            else return Content(Url.Content("~/Content/iTasksTemplate") + "/img/default-profile.png");
+            else
+            {
+                string path = Server.MapPath("..") + Url.Content("~/Content/iTasksTemplate") + "/img/default-profile.png";
+                FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read);
+                StreamReader sw = new StreamReader(fs);
+
+                byte[] photo = new byte[fs.Length];
+                fs.Read(photo, 0, (int)fs.Length);
+                return File(photo, "image/jpg", "ProfilePhoto.jpg");
+            }
         } 
 
         public ActionResult userImage(string Id)
@@ -85,7 +95,16 @@ namespace iTasksProject.Controllers
             {
                 return File(image, "image/jpg", "ProfilePhoto.jpg");
             }
-            else return Content(Url.Content("~/Content/iTasksTemplate") + "/img/default-profile.png");
+            else
+            {
+                string path = Server.MapPath("..") + Url.Content("~/Content/iTasksTemplate") + "/img/default-profile.png";
+                FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read);
+                StreamReader sw = new StreamReader(fs);
+
+                byte[] photo = new byte[fs.Length];
+                fs.Read(photo, 0, (int)fs.Length);
+                return File(photo, "image/jpg", "ProfilePhoto.jpg");
+            }
         }
 
         // GET: Profile Image
@@ -96,7 +115,16 @@ namespace iTasksProject.Controllers
             {
                 return File(image, "image/jpg", "CoverPhoto.jpg");
             }
-            else return new EmptyResult();
+            else
+            {
+                string path = Server.MapPath("..") + Url.Content("~/Content/iTasksTemplate") + "/img/default-cover.jpg";
+                FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read);
+                StreamReader sw = new StreamReader(fs);
+
+                byte[] photo = new byte[fs.Length];
+                fs.Read(photo, 0, (int)fs.Length);
+                return File(photo, "image/jpg", "CoverPhoto.jpg");
+            }
         }
 
         protected override void Dispose(bool disposing)

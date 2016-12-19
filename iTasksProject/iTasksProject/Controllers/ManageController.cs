@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using iTasksProject.Models;
+using System.IO;
 
 namespace iTasksProject.Controllers
 {
@@ -86,7 +87,16 @@ namespace iTasksProject.Controllers
             {
                 return File(image, "image/jpg", "ProfilePhoto.jpg");
             }
-            else return Content(Url.Content("~/Content/iTasksTemplate") + "/img/default-profile.png");
+            else
+            {
+                string path = Server.MapPath("..")  + Url.Content("~/Content/iTasksTemplate") + "/img/default-profile.png";
+                FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read);
+                StreamReader sw = new StreamReader(fs);
+
+                byte[] photo = new byte[fs.Length];
+                fs.Read(photo, 0, (int)fs.Length);
+                return File(photo, "image/jpg", "ProfilePhoto.jpg");
+            }
         }
 
         // GET: Profile Image
@@ -97,7 +107,16 @@ namespace iTasksProject.Controllers
             {
                 return File(image, "image/jpg", "CoverPhoto.jpg");
             }
-            else return new EmptyResult();
+            else
+            {
+                string path = Server.MapPath("..") + Url.Content("~/Content/iTasksTemplate") + "/img/default-cover.png";
+                FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read);
+                StreamReader sw = new StreamReader(fs);
+
+                byte[] photo = new byte[fs.Length];
+                fs.Read(photo, 0, (int)fs.Length);
+                return File(photo, "image/jpg", "CoverPhoto.jpg");
+            }
         }
 
         //

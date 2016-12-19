@@ -160,6 +160,15 @@ namespace iTasksProject.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to iletişim mesajları.
+        /// </summary>
+        public static string ContactMessages {
+            get {
+                return ResourceManager.GetString("ContactMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Günlük.
         /// </summary>
         public static string Daily {
@@ -246,6 +255,15 @@ namespace iTasksProject.Resources {
         public static string Delete {
             get {
                 return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kullanııc sil.
+        /// </summary>
+        public static string DeleteUser {
+            get {
+                return ResourceManager.GetString("DeleteUser", resourceCulture);
             }
         }
         
@@ -345,6 +363,15 @@ namespace iTasksProject.Resources {
         public static string Logoff {
             get {
                 return ResourceManager.GetString("Logoff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Admin yap.
+        /// </summary>
+        public static string MakeAdmin {
+            get {
+                return ResourceManager.GetString("MakeAdmin", resourceCulture);
             }
         }
         
@@ -525,6 +552,15 @@ namespace iTasksProject.Resources {
         public static string UserName {
             get {
                 return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kullanıcılar.
+        /// </summary>
+        public static string Users {
+            get {
+                return ResourceManager.GetString("Users", resourceCulture);
             }
         }
         

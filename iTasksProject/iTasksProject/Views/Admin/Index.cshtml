@@ -1,5 +1,7 @@
 ﻿@using iTasksProject.Models
 @using Microsoft.AspNet.Identity
+@using iTasksProject.Resources
+
 @model AdminViewModel
 @{
     ViewBag.Title = "Admin Panel";
@@ -10,7 +12,7 @@
             <div class="col-md-3 col-sm-4 col-xs-6">
                 <img class="img-responsive img-thumbnail" src='@Url.Action("ProfileImage")' style="width:100%;text-align:center;margin-bottom:15px;" alt="Profile Image" />
             </div>
-            <h1 class="h1Heading col-md-5 col-sm-6">Hello, @User.Identity.GetUserName().Split(' ')[0] !</h1>
+            <h1 class="h1Heading col-md-5 col-sm-6">@lang.Hello, @User.Identity.GetUserName().Split(' ')[0] !</h1>
         </div>
     </div>
 </section>
@@ -18,7 +20,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6" style="border:solid #e3e3e3;border-width:0px 1px;">
-                <h2 class="h1Heading">Users</h2>
+                <h2 class="h1Heading">@lang.Users</h2>
                 <div class="block">
                     @foreach (var item in Model.Users)
                     {
@@ -27,7 +29,7 @@
                 </div>
             </div>
             <div class="col-md-6" style="border:solid #e3e3e3;border-width:0px 1px;">
-                <h2 class="h1Heading">Contact messages</h2>
+                <h2 class="h1Heading">@lang.ContactMessages</h2>
                 <div class="block">
                     @foreach (var item in Model.Messages)
                     {
@@ -44,5 +46,4 @@
     <script src='@Url.Content("~/Content/iTasksTemplate/")js/jquery.min.js'></script>
     <script src="@Url.Content("~/Content/iTasksTemplate/")js/login.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
 }

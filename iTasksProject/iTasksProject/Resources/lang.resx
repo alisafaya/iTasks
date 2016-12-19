@@ -150,6 +150,9 @@
   <data name="Contact8" xml:space="preserve">
     <value>Google haritalarında bizi bulursunuz</value>
   </data>
+  <data name="ContactMessages" xml:space="preserve">
+    <value>iletişim mesajları</value>
+  </data>
   <data name="Daily" xml:space="preserve">
     <value>Günlük</value>
   </data>
@@ -179,6 +182,9 @@
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Sil</value>
+  </data>
+  <data name="DeleteUser" xml:space="preserve">
+    <value>Kullanııc sil</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Açıklama</value>
@@ -212,6 +218,9 @@
   </data>
   <data name="Logoff" xml:space="preserve">
     <value>Çıkış</value>
+  </data>
+  <data name="MakeAdmin" xml:space="preserve">
+    <value>Admin yap</value>
   </data>
   <data name="Manage" xml:space="preserve">
     <value>Yönet</value>
@@ -272,6 +281,9 @@
   </data>
   <data name="UserName" xml:space="preserve">
     <value>kullanıcı adı</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Kullanıcılar</value>
   </data>
   <data name="VeryImportant" xml:space="preserve">
     <value>Çok önemli</value>
