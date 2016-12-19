@@ -227,7 +227,6 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Attributes.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\iTasksModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -357,11 +356,12 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\_User.cshtml" />
     <Content Include="Views\Shared\_Message.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Enum.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\iTasksTemplate\fonts\" />
     <Folder Include="Content\iTasksTemplate\less\" />
-    <Folder Include="Views\Image\" />
+    <Folder Include="Views\RoleManager\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

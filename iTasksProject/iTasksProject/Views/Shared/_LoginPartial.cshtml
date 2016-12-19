@@ -3,14 +3,18 @@
 @if (Request.IsAuthenticated)
 {
     
-        <li>
-            @Html.ActionLink(User.Identity.GetUserName().Split(' ')[0], "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li>
-            @Html.ActionLink(lang.MyTasks, "Index", "iTasks")
-        </li>
-        <li>@Html.ActionLink(lang.Logoff,"LogOff", "Account")</li>
- 
+    <li>
+        @Html.ActionLink(User.Identity.GetUserName().Split(' ')[0], "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+    </li>
+    <li>
+        @Html.ActionLink(lang.MyTasks, "Index", "iTasks")
+    </li>
+    <li>@Html.ActionLink(lang.Logoff, "LogOff", "Account")</li>
+    if (User.IsInRole("admin"))
+    {
+    <li>@Html.ActionLink(lang.Manage, "Index", "Admin")</li>
+    }
+
 }
 else
 {

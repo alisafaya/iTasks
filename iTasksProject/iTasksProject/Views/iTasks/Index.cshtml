@@ -1,4 +1,5 @@
 ﻿@model iTasksProject.Models.iTaskViewModel
+@using iTasksProject.Resources
 @using Microsoft.AspNet.Identity;
 @{
     ViewBag.Title = "My Profile";
@@ -10,31 +11,31 @@
             <div class="col-md-3 col-sm-4 col-xs-6">
                 <img class="img-responsive img-thumbnail" src='@Url.Action("ProfileImage")' style="width:100%;text-align:center;margin-bottom:15px;" alt="Profile Image" />
             </div>
-            <h1 class="h1Heading col-md-5 col-sm-6">Hello, @User.Identity.GetUserName().Split(' ')[0] !</h1>
+            <h1 class="h1Heading col-md-5 col-sm-6">@lang.Hello, @User.Identity.GetUserName().Split(' ')[0] !</h1>
         </div>
     </div>
 </section>
 <section>
     <div class="container">
         <div class="row">
-            <div class="logmod col-md-offset-1 col-md-6" style="border:solid #e3e3e3;border-width:0px 3px;padding:0;">
+            <div class="logmod col-md-offset-1 col-md-6 col-sm-offset-1 col-sm-10" style="border:solid #e3e3e3;border-width:0px 3px;padding:0;">
                 <div class="logmod__wrapper">
                     <div class="logmod__container">
                         <ul class="logmod__tabs">
                             <li class="current" data-tabtar="lgm-1">
-                                <a href="#">Daily Tasks</a>
+                                <a href="#">@lang.DailyTasks</a>
                             </li>
                             <li class="" data-tabtar="lgm-2">
-                                <a href="#">Weekly Tasks</a>
+                                <a href="#">@lang.WeeklyTasks</a>
                             </li>
                             <li class="" data-tabtar="lgm-3">
-                                <a href="#">Goals</a>
+                                <a href="#">@lang.Goals</a>
                             </li>
                         </ul>
                         <div class="logmod__tab-wrapper">
                             <div class="logmod__tab lgm-1 show">
                                 <div class="logmod__heading">
-                                    <span class="logmod__heading-subtitle">Here are the tasks that you do daily here</span>
+                                    <span class="logmod__heading-subtitle">@lang.Tasks1</span>
                                 </div>
                                 @foreach (var item in Model.tasks)
                                 {
@@ -46,7 +47,7 @@
                             </div>
                             <div class="logmod__tab lgm-2">
                                 <div class="logmod__heading">
-                                    <span class="logmod__heading-subtitle">Here are the tasks that you do weekly here</span>
+                                    <span class="logmod__heading-subtitle">@lang.Tasks2</span>
                                 </div>
                                 @foreach (var item in Model.tasks)
                                 {
@@ -58,7 +59,7 @@
                             </div>
                             <div class="logmod__tab lgm-3">
                                 <div class="logmod__heading">
-                                    <span class="logmod__heading-subtitle">Here are the goals that you want to reach</span>
+                                    <span class="logmod__heading-subtitle">@lang.Tasks3</span>
                                 </div>
                                 @foreach (var item in Model.tasks)
                                 {
@@ -72,36 +73,36 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-5 col-sm-8">
+            <div class="col-md-4 col-sm-offset-1 col-sm-10">
                 <div class="block">
                     @using (Html.BeginForm("Create", "iTasks", FormMethod.Post))
                     {
                         <div class="col-md-12 col-sm-12">
-                            <h2 class="h1Heading"> Task</h2>
+                            <h2 class="h1Heading"> @lang.Task</h2>
                             <div class="block">
                                 @Html.AntiForgeryToken()
                                 <div class="form-group">
-                                    <h2 class="h2Heading pull-left" style="padding:5px; margin-top: 0;margin-bottom: 0;line-height:25px">Name</h2>
                                     @Html.ValidationMessageFor(m => m.task.Name, "", new { @class = "text-danger" })
-                                    @Html.TextBoxFor(m => m.task.Name, new { @class = "form-control editiTask-form pull-right", @placeholder = "Name" ,@style= "" })
+                                    <h2 class="h2Heading pull-left" style="padding:5px; margin-top: 0;margin-bottom: 0;line-height:25px">@lang.Name</h2>
+                                    @Html.TextBoxFor(m => m.task.Name, new { @class = "form-control editiTask-form pull-right", @placeholder = @lang.Name ,@style= "" })
                                 </div>
                                 <div class="form-group">
-                                    <h2 class="h2Heading pull-left" style="padding:5px;margin-top: 0;margin-bottom: 0;line-height:25px">Description</h2>
                                     @Html.ValidationMessageFor(m => m.task.Description , "", new { @class = "text-danger" })
-                                    @Html.TextBoxFor(m => m.task.Description, new { @class = "form-control editiTask-form pull-right", @placeholder = "Description"})
+                                    <h2 class="h2Heading pull-left" style="padding:5px;margin-top: 0;margin-bottom: 0;line-height:25px">@lang.Description</h2>
+                                    @Html.TextBoxFor(m => m.task.Description, new { @class = "form-control editiTask-form pull-right", @placeholder = @lang.Description})
                                 </div>
                                 <div class="form-group">
-                                    <h2 class="h2Heading pull-left" style="padding:5px;margin-top: 0;margin-bottom: 0;line-height:25px">Priority</h2>
                                     @Html.ValidationMessageFor(m => m.task.Priority, "", new { @class = "text-danger" })
-                                    @Html.EnumDropDownListFor(m => m.task.Priority, new { @class = "form-control editiTask-form pull-right", @placeholder = "Priority" })
+                                    <h2 class="h2Heading pull-left" style="padding:5px;margin-top: 0;margin-bottom: 0;line-height:25px">@lang.Priority</h2>
+                                    @Html.EnumDropDownListFor(m => m.task.Priority, new { @class = "form-control editiTask-form pull-right", @placeholder = @lang.Priority })
                                 </div>
                                 <div class="form-group">
-                                    <h2 class="h2Heading pull-left" style="padding:5px;margin-top: 0;margin-bottom: 0;line-height:25px">Type</h2>
                                     @Html.ValidationMessageFor(m => m.task.Type, "", new { @class = "text-danger" })
-                                    @Html.EnumDropDownListFor(m => m.task.Type, new { @class = "form-control editiTask-form pull-right", @placeholder = "Type" })
+                                    <h2 class="h2Heading pull-left" style="padding:5px;margin-top: 0;margin-bottom: 0;line-height:25px">@lang.Type</h2>
+                                    @Html.EnumDropDownListFor(m => m.task.Type, new { @class = "form-control editiTask-form pull-right", @placeholder = @lang.Type })
                                 </div>
                             </div>
-                            <button class="btn btn-default edit-btn" type="submit">Save</button>
+                            <button class="btn btn-default edit-btn" type="submit">@lang.Save</button>
                         </div>
                     }
                 </div>

@@ -17,6 +17,6 @@
     </div>
     <div class="col-md-3 col-sm-3 col-xs-3 pull-right" style="padding-top:50px;">
         @Html.ActionLink("Delete user", "DeleteUser", "Admin", new { id = Model.Id }, new { @class = "btn btn-default iTask-btn " })
-        @Html.ActionLink("Make admin ", "MakeAdmin", "Admin", new { id = Model.Id }, new { @class = "btn btn-default iTask-btn" })
+        @Html.ActionLink("Make admin ", "AddRoleToUser", "Admin", new { id = Model.Id }, new { @class = "btn btn-default iTask-btn" })
     </div>
 </div>

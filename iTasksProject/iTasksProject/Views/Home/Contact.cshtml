@@ -1,4 +1,5 @@
 ﻿@model iTasksProject.Models.ContactMessageModel
+@using iTasksProject.Resources
 @{
     ViewBag.Title = "Contact";
 }
@@ -8,8 +9,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="block">
-                    <h1>Drop Us A Note</h1>
-                    <p>Don’t just take our word for it. Check out some of our latest work.</p>
+                    <h1>@lang.Contact1</h1>
                 </div>
             </div>
         </div>
@@ -26,15 +26,15 @@
                         @Html.AntiForgeryToken()
                         <div class="form-group">
                             @Html.ValidationMessageFor(m => m.userName, "", new { @class = "text-danger" })
-                            @Html.TextBoxFor(m => m.userName, new { @class = "form-control", @placeholder = "Your name" })
+                            @Html.TextBoxFor(m => m.userName, new { @class = "form-control", @placeholder = @lang.Contact2 })
                         </div>
                         <div class="form-group">
                             @Html.ValidationMessageFor(m => m.userEmail, "", new { @class = "text-danger" })
-                            @Html.TextBoxFor(m => m.userEmail, new { @class = "form-control", @placeholder = "Email address" })
+                            @Html.TextBoxFor(m => m.userEmail, new { @class = "form-control", @placeholder = @lang.Contact3 })
                         </div>
                         <div class="form-group">
                             @Html.ValidationMessageFor(m => m.subject, "", new { @class = "text-danger" })
-                            @Html.TextBoxFor(m => m.subject, new { @class = "form-control", @placeholder = "Subject" })
+                            @Html.TextBoxFor(m => m.subject, new { @class = "form-control", @placeholder = @lang.Contact4 })
                         </div>
                     </div>
                 </div>
@@ -42,9 +42,9 @@
                     <div class="block">
                         <div class="form-group-2">
                             @Html.ValidationMessageFor(m => m.message, "", new { @class = "text-danger" })
-                            @Html.TextAreaFor(m => m.message, new { @rows = "3", @class = "form-control", @placeholder = "Your message" })
+                            @Html.TextAreaFor(m => m.message, new { @rows = "3", @class = "form-control", @placeholder = @lang.Contact5 })
                         </div>
-                        <button class="btn btn-default" type="submit">Send Message</button>
+                        <button class="btn btn-default" type="submit">@lang.Contact6</button>
                     </div>
                 </div>
             }
@@ -52,7 +52,7 @@
         <div id="contact-box" class="row">
             <div class="col-md-6 col-sm-12">
                 <div class="block">
-                    <h2>Stop By For A visit</h2>
+                    <h2>@lang.Contact7</h2>
                     <ul class="address-block">
                         <li>
                             <i class="fa fa-map-marker"></i>N:208 Street, Serdivan Sakarya
@@ -68,7 +68,7 @@
             </div>
             <div class="col-md-6 col-sm-12">
                 <div class="block">
-                    <h2>We Also Count In Google Map</h2>
+                    <h2>@lang.Contact8</h2>
                     <div class="google-map">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2469.3791159938023!2d30.35318696970015!3d40.74767716894181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14ccb27a60001b39%3A0x82ef60679704c13d!2sKemalpa%C5%9Fa%2C+208.+Sk.%2C+54050+Selahiye%2FSerdivan%2FSakarya!5e0!3m2!1str!2str!4v1481843295974" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div>

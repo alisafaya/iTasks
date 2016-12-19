@@ -1,11 +1,20 @@
-﻿@model iTasksProject.Models.iTaskType
+﻿@model iTasksProject.Models.iTaskPriority
 @{ 
-
+    switch (Model)
+    {
+        case iTasksProject.Models.iTaskPriority.Important:
+            ViewBag.URL = @Url.Content("~/Content/iTasksTemplate/") + "img/Important.png";
+            break;
+        case iTasksProject.Models.iTaskPriority.VeryImportant:
+            ViewBag.URL = @Url.Content("~/Content/iTasksTemplate/") + "img/VeryImportant.png";
+            break;
+        case iTasksProject.Models.iTaskPriority.Scheduled:
+            ViewBag.URL = @Url.Content("~/Content/iTasksTemplate/") + "img/CheckList.png";
+            break;
+        case iTasksProject.Models.iTaskPriority.Reminder:
+            ViewBag.URL = @Url.Content("~/Content/iTasksTemplate/") + "img/Reminder.png";
+            break;
+    }
 }
 
-
-
-
-    }
-<img src="http://placehold.it/50x50" style="width:70%;margin:5px 15%;" />
-r
+<img src="@ViewBag.URL" style="width:70%;margin:5px 15%;padding:10px;" />

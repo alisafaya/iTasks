@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using iTasksProject.Resources;
 
 namespace iTasksProject.Models
 {
     public enum iTaskPriority
     {
+        [Display(Name="Very important task")]
         VeryImportant,
+        [Display(Name="important task")]
         Important,
+        [Display(Name="Scheduled task")]
         Scheduled,
+        [Display(Name="Just a reminder")]
         Reminder
     }
 

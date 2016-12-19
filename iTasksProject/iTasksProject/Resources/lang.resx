@@ -117,8 +117,44 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Şifremi değiştir</value>
+  </data>
+  <data name="Complete" xml:space="preserve">
+    <value>Yapıldı</value>
+  </data>
   <data name="Contact" xml:space="preserve">
     <value>iletişim</value>
+  </data>
+  <data name="Contact1" xml:space="preserve">
+    <value>Bize mesaj bırakın</value>
+  </data>
+  <data name="Contact2" xml:space="preserve">
+    <value>Ad</value>
+  </data>
+  <data name="Contact3" xml:space="preserve">
+    <value>Email adres</value>
+  </data>
+  <data name="Contact4" xml:space="preserve">
+    <value>Konu</value>
+  </data>
+  <data name="Contact5" xml:space="preserve">
+    <value>Mesajınız</value>
+  </data>
+  <data name="Contact6" xml:space="preserve">
+    <value>Mesajı gönder</value>
+  </data>
+  <data name="Contact7" xml:space="preserve">
+    <value>Bizi ziyaret edin</value>
+  </data>
+  <data name="Contact8" xml:space="preserve">
+    <value>Google haritalarında bizi bulursunuz</value>
+  </data>
+  <data name="Daily" xml:space="preserve">
+    <value>Günlük</value>
+  </data>
+  <data name="DailyTasks" xml:space="preserve">
+    <value>GÜNLÜK GÖREVLER</value>
   </data>
   <data name="Definition1" xml:space="preserve">
     <value>Görevlerini organize etmekten yoruldun mu ?</value>
@@ -141,8 +177,35 @@
   <data name="Definition7" xml:space="preserve">
     <value>Görevlerinize bir hesapla herhangi bir cihazdan erişin</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Sil</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Açıklama</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Değiştir</value>
+  </data>
+  <data name="EditInfo" xml:space="preserve">
+    <value>Bilgilerimi değiştir</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Goal" xml:space="preserve">
+    <value>Hedef</value>
+  </data>
+  <data name="Goals" xml:space="preserve">
+    <value>HEDEFLER</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Merhaba</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>Ana Sayfa</value>
+  </data>
+  <data name="Important" xml:space="preserve">
+    <value>Önemli</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Giriş</value>
@@ -150,13 +213,73 @@
   <data name="Logoff" xml:space="preserve">
     <value>Çıkış</value>
   </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Yönet</value>
+  </data>
   <data name="MyTasks" xml:space="preserve">
     <value>Görevlerim</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Ad</value>
+  </data>
+  <data name="NoPhoneNum" xml:space="preserve">
+    <value>Telefon numarası eklenmedi</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Telefon numarası</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Öncelik</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Kaydol</value>
   </data>
   <data name="RegisterNow" xml:space="preserve">
     <value>Kaydol şimdi</value>
+  </data>
+  <data name="Reminder" xml:space="preserve">
+    <value>Hatırlatıcı</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Kaydet</value>
+  </data>
+  <data name="Scheduled" xml:space="preserve">
+    <value>Zamanlanmış</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Yükle</value>
+  </data>
+  <data name="Task" xml:space="preserve">
+    <value>Görev</value>
+  </data>
+  <data name="Tasks1" xml:space="preserve">
+    <value>İşte burada günlük yaptığınız görevler</value>
+  </data>
+  <data name="Tasks2" xml:space="preserve">
+    <value>İşte burada haftalık yaptığınız görevler</value>
+  </data>
+  <data name="Tasks3" xml:space="preserve">
+    <value>Ulaşmak istediğiniz hedefler</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Tür</value>
+  </data>
+  <data name="Uncomplete" xml:space="preserve">
+    <value>Yapılmadı</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Dosya seç</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>kullanıcı adı</value>
+  </data>
+  <data name="VeryImportant" xml:space="preserve">
+    <value>Çok önemli</value>
+  </data>
+  <data name="Weekly" xml:space="preserve">
+    <value>Haftalık</value>
+  </data>
+  <data name="WeeklyTasks" xml:space="preserve">
+    <value>HAFTALIK GÖREVLER</value>
   </data>
 </root>

@@ -22,7 +22,7 @@ namespace iTasksProject.Controllers
             var userId = User.Identity.GetUserId();
             var user = db.Users.Find(userId);
             var model = new iTaskViewModel();
-            model.tasks = db.iTasks.Select(m => m).Where(m => m.User.Id == user.Id).ToList();
+            model.tasks = db.iTasks.Select(m => m).Where(m => m.User.Id == user.Id).OrderBy(m => m.Priority).ToList();
             model.task = new iTask();
             return View(model);
         }
@@ -35,7 +35,7 @@ namespace iTasksProject.Controllers
             var userId = User.Identity.GetUserId();
             var user = db.Users.Find(userId);
             var model = new iTaskViewModel();
-            model.tasks = db.iTasks.Select(m => m).Where(m => m.User.Id == user.Id).ToList();
+            model.tasks = db.iTasks.Select(m => m).Where(m => m.User.Id == user.Id).OrderBy(m => m.Priority).ToList();
             model.task = db.iTasks.Find(id);
             return View("Index", model);
         }
@@ -51,7 +51,7 @@ namespace iTasksProject.Controllers
             var userId = User.Identity.GetUserId();
             var user = db.Users.Find(userId);
             var model = new iTaskViewModel();
-            model.tasks = db.iTasks.Select(m => m).Where(m => m.User.Id == user.Id).ToList();
+            model.tasks = db.iTasks.Select(m => m).Where(m => m.User.Id == user.Id).OrderBy(m => m.Priority).ToList();
             model.task = null;
             if (ModelState.IsValid)
             {

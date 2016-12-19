@@ -1,5 +1,9 @@
 namespace iTasksProject.Migrations
 {
+    using Controllers;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -14,19 +18,31 @@ namespace iTasksProject.Migrations
 
         protected override void Seed(iTasksProject.Models.ApplicationDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            var rolestore = new RoleStore<IdentityRole>(context);
+            var rolemanager = new RoleManager<IdentityRole>(rolestore);
+            if (rolemanager.RoleExists("admin") == false)
+            {
+                rolemanager.Create(new IdentityRole("admin"));
+            }
+            var userstore = new UserStore<ApplicationUser>(context);
+            var usermanager = new UserManager<ApplicationUser>(userstore);
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
-            
+            var user = new ApplicationUser { UserName = "Ali Safaya", Email = "ali@mail.com" };
+
+            var result = new AccountController().Register(
+                new Models.RegisterOrLoginViewModel {
+                    RegisterViewModel = new RegisterViewModel {
+                        UserName = "Ali Safaya", Email = "ali@mail.com" , Password ="Admin12345" ,ConfirmPassword = "Admin12345" } });
+
+
+            if (user != null)
+            {
+                if (!usermanager.IsInRole(user.Id, "admin"))
+                {
+                    usermanager.AddToRole(user.Id, "admin");
+                }
+            }
+
         }
     }
 }

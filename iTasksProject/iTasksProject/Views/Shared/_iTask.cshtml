@@ -1,4 +1,5 @@
 ﻿@using iTasksProject.Models
+@using iTasksProject.Resources
 @model iTask
 @{ 
     if (Model.Description != null)
@@ -15,7 +16,7 @@
 <hr style="margin:0;" />
 <div class="row">
     <div class="col-md-2 col-sm-2 col-xs-2" style="margin-right:0;padding-right:0;">
-        @Html.DisplayFor(m=>m.Type)
+        @Html.DisplayFor(m=>m.Priority)
     </div>
     <div class="col-md-6 col-sm-6 col-xs-6" style="margin-left:3px;padding-left:0;">
         <h3 style="margin:5px 0;">@Model.Name</h3>
@@ -24,13 +25,13 @@
     <div class="col-md-3 col-sm-3 col-xs-3 pull-right">
         @if (Model.Complete)
         {
-            @Html.ActionLink("Uncomplete", "MarkComplete", "iTasks", new { id = Model.Id }, new { @class = "btn btn-default iTask-btn" })
+            @Html.ActionLink(@lang.Uncomplete , "MarkComplete", "iTasks", new { id = Model.Id }, new { @class = "btn btn-default iTask-btn" })
         }
         else
         {
-            @Html.ActionLink(" Complete ", "MarkComplete", "iTasks", new { id = Model.Id }, new { @class = "btn btn-default iTask-btn"});
+            @Html.ActionLink(@lang.Uncomplete , "MarkComplete", "iTasks", new { id = Model.Id }, new { @class = "btn btn-default iTask-btn"});
         }
-        @Html.ActionLink(" Delete ", "Delete", "iTasks", new { id = Model.Id }, new { @class = "btn btn-default iTask-btn " })
-        @Html.ActionLink(" Edit ", "Edit", "iTasks", new { id = Model.Id }, new { @class = "btn btn-default iTask-btn"})
+        @Html.ActionLink(@lang.Delete, "Delete", "iTasks", new { id = Model.Id }, new { @class = "btn btn-default iTask-btn " })
+        @Html.ActionLink(@lang.Edit, "Edit", "iTasks", new { id = Model.Id }, new { @class = "btn btn-default iTask-btn"})
     </div>
 </div>

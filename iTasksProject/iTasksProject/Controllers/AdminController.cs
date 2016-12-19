@@ -1,5 +1,6 @@
 ﻿using iTasksProject.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Web.Mvc;
 
 namespace iTasksProject.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="admin")]
     public class AdminController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -20,6 +21,30 @@ namespace iTasksProject.Controllers
             var messages = db.ContactMessageModels.ToList();
             var model = new AdminViewModel { Users = users, Messages = messages };
             return View("Index",model);
+        }
+
+        public ActionResult AddRoleToUser(string Id)
+        {
+            var rolestore = new RoleStore<IdentityRole>(db);
+            var rolemanager = new RoleManager<IdentityRole>(rolestore);
+            if (rolemanager.RoleExists("admin") == false)
+            {
+                rolemanager.Create(new IdentityRole("admin"));
+            }
+            var userstore = new UserStore<ApplicationUser>(db);
+            var usermanager = new UserManager<ApplicationUser>(userstore);
+
+            var user = db.Users.Find(Id);
+
+            if (user != null)
+            {
+                if (!usermanager.IsInRole(user.Id, "admin"))
+                {
+                    usermanager.AddToRole(user.Id, "admin");
+                }
+            }
+            db.SaveChanges();
+            return RedirectToAction("Index", "Admin");
         }
 
         // GET: iTasks/Delete/5
