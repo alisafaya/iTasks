@@ -197,7 +197,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\ContactMessageModelsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\iTasksController.cs" />
@@ -318,38 +317,18 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_iTasksLayout.cshtml" />
     <Content Include="Views\Account\RegisterOrLogin.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
-    <Content Include="Views\ContactMessageModels\Create.cshtml" />
-    <Content Include="Views\ContactMessageModels\Delete.cshtml" />
-    <Content Include="Views\ContactMessageModels\Details.cshtml" />
-    <Content Include="Views\ContactMessageModels\Edit.cshtml" />
-    <Content Include="Views\ContactMessageModels\Index.cshtml" />
     <Content Include="Views\Manage\EditMyInfo.cshtml" />
-    <Content Include="Views\iTasks\Create.cshtml" />
-    <Content Include="Views\iTasks\Delete.cshtml" />
-    <Content Include="Views\iTasks\Details.cshtml" />
-    <Content Include="Views\iTasks\Edit.cshtml" />
     <Content Include="Views\iTasks\Index.cshtml" />
     <Content Include="Views\Shared\_iTask.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\iTaskPriority.cshtml" />
@@ -361,7 +340,6 @@
   <ItemGroup>
     <Folder Include="Content\iTasksTemplate\fonts\" />
     <Folder Include="Content\iTasksTemplate\less\" />
-    <Folder Include="Views\RoleManager\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

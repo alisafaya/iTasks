@@ -109,7 +109,7 @@ namespace iTasksProject.Controllers
             }
             else
             {
-                string path = Server.MapPath("..") + Url.Content("~/Content/iTasksTemplate") + "/img/default-cover.png";
+                string path = Server.MapPath("..") + Url.Content("~/Content/iTasksTemplate") + "/img/default-cover.jpg";
                 FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read);
                 StreamReader sw = new StreamReader(fs);
 

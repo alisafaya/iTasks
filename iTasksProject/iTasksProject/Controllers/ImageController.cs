@@ -30,7 +30,7 @@ namespace iTasksProject.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index", "Manage");
             }
-            else return HttpNotFound("The Image Cannot be Uploaded");
+            else return null;
         }
 
         //POST : Upload Cover Image
@@ -49,7 +49,7 @@ namespace iTasksProject.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index", "Manage");
             }
-            else return HttpNotFound("The Image Cannot be Uploaded");
+            else return null;
         }
 
         //Delete cover image
